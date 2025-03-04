@@ -1,0 +1,18 @@
+---
+description: List of rules to be used in the Android project
+globs: *kt, *toml, *gradle
+---
+
+# Your rule content
+
+- You can @ files here
+- You can use markdown but dont have to
+- The project follows clean architecture principle, which means the project has disctint data, domain and presentation layers, the data layer contains the api, the dtos, the domain layer contains domain objects and usecases, the presentation layer contains UI components, screens, navigation and viewmodels. There is no repository layer. There is a local DB and network API layer in the application. Interfaces define all layers of the app except the actual api client call layer
+- Use cases uses kotlin Result type, however all layers below use case use ArrowKt's Either type
+- API layer is build using Ktor
+- DI framework is Koin
+- Gradle dependencies are added using version catalog rules
+- Use sealed classes or enums to define closed data models
+- Use latest compose APIs
+- We use Room DB for local database storage
+- kotlix.serialization is used in the app

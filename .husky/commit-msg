@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Get the commit message from the temporary file
+commit_msg_file=$1
+
+# Read the commit message
+commit_msg=$(cat "$commit_msg_file")
+
+# Conventional commit regex pattern without scope
+conventional_pattern="^(feat|fix|docs|style|refactor|perf|test|build|ci|chore): .+$"
+
+# Check if the commit message matches the conventional pattern
+if ! echo "$commit_msg" | grep -qE "$conventional_pattern"; then
+    echo "Error: Commit message does not follow conventional commit format"
+    echo "Expected format: type: description"
+    echo "Types: feat, fix, docs, style, refactor, perf, test, build, ci, chore"
+    echo "Example: feat: add login functionality"
+    exit 1
+fi
+
+exit 0
